@@ -1,0 +1,51 @@
+# Programa que usa a função FibRec para gerar a sequência
+# O limite deve ser maior ou igual a 2
+Limite=int(input('Entre com o número de elementos (>=2): '))
+N=2 # Número de cada elemento da sequência
+# Imprime os títulos da tabela
+print(' N   Fib(N)   Razão')
+print(' ', '1', 3*' ', '1')
+print(' ', '2', 3*' ', '1',3*' ', '1.0')
+FibA = 1
+FibB = 1
+while N < Limite:
+     FibA=FibRec(N)
+     N=N+1
+     FibB=FibRec(N)
+     """ Concatena 3 brancos à esquerda se Fib(N) for menor do que 10,
+         2 se for maior do que 9 e menor do que 100,
+         1 se for maior do que 99 e menor do que 1000.
+         Se for maior do que 1000 haverá problema de alinhamento """
+     print(2*' '+str(N) if N<10 else ' '+str(N) if N<100 else N,
+      4*' '+str(FibB) if FibB<10 else
+      3*' '+str(FibB) if FibB<100 else
+      2*' '+str(FibB) if FibB<1000 else
+      ' '+str(FibB) if FibB<10000 else FibB, 3*' ', FibB/FibA)
+print('Compare com a razão áurea:\n', 12*' ',(1+math.sqrt(5))/2)
+
+Resultado (o número de espaços em branco será diferente):
+
+Entre com o número de elementos (>=2): 20
+N Fib(N)     Razão
+1     1
+2     1 1.0
+3     2 2.0
+4     3 1.5
+5     5 1.6666666666666667
+6     8 1.6
+7    13 1.625
+8    21 1.6153846153846154
+9    34 1.619047619047619
+10   55 1.6176470588235294
+11   89 1.6181818181818182
+12  144 1.6179775280898876
+13  233 1.6180555555555556
+14  377 1.6180257510729614
+15  610 1.6180371352785146
+16  987 1.618032786885246
+17 1597 1.618034447821682
+18 2584 1.6180338134001253
+19 4181 1.618034055727554
+20 6765 1.6180339631667064
+Compare com a razão áurea:
+        1.618033988749895
